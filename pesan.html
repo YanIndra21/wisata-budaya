@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script src="scripts/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Pesan Tiket</title>
+  </head>
+  <body class="bg-slate-200 font-poppins">
+    <main
+      class="bg-white mx-auto max-w-3xl mt-8 flex flex-col p-10 rounded-lg shadow-lg"
+    >
+      <h1 class="font-bold text-2xl text-center mb-6">Lengkapi Data</h1>
+
+      <form oninput="calculateTotal()">
+        <div class="flex flex-col justify-center mb-4">
+          <label for="nama" class="font-semibold text-xl mb-2">Nama</label>
+          <input
+            type="text"
+            id="nama"
+            name="nama"
+            class="border p-2"
+            required
+          />
+        </div>
+
+        <div class="flex flex-col mb-4">
+          <label class="font-semibold text-xl mb-2">Jenis Kelamin</label>
+          <div class="flex gap-4">
+            <label>
+              <input
+                type="radio"
+                id="laki-laki"
+                name="jenis_kelamin"
+                value="laki-laki"
+                required
+              />
+              Laki-laki
+            </label>
+            <label>
+              <input
+                type="radio"
+                id="perempuan"
+                name="jenis_kelamin"
+                value="perempuan"
+                required
+              />
+              Perempuan
+            </label>
+          </div>
+        </div>
+
+        <div class="flex flex-col mb-4">
+          <label for="no_telepon" class="font-semibold text-xl mb-2"
+            >No Telepon</label
+          >
+          <input
+            type="number"
+            name="no_telepon"
+            id="no_telepon"
+            class="border p-2"
+            required
+          />
+        </div>
+
+        <div class="flex flex-col mb-4">
+          <label for="email" class="font-semibold text-xl mb-2">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="border p-2"
+            required
+          />
+        </div>
+        <div class="flex flex-col mb-4">
+          <label for="tgl_reservasi" class="font-semibold text-xl mb-2"
+            >Tanggal Reservasi</label
+          >
+          <input
+            type="date"
+            name="tgl_reservasi"
+            id="tgl_reservasi"
+            class="border p-2"
+            required
+          />
+        </div>
+
+        <div class="flex flex-col mb-4">
+          <label for="kategori_jenis" class="font-semibold text-xl mb-2"
+            >Kategori Jenis</label
+          >
+          <select
+            name="kategori_jenis"
+            id="kategori_jenis"
+            class="border p-2"
+            required
+          >
+            <option value="domestik_dewasa">Domestik Dewasa</option>
+            <option value="domestik_anak">Domestik Anak</option>
+            <option value="mancanegara_dewasa">Mancanegara Dewasa</option>
+            <option value="mancanegara_anak">Mancanegara Anak</option>
+            <option value="paket_kelompok">Paket Kelompok</option>
+          </select>
+        </div>
+
+        <div class="flex flex-col mb-4">
+          <label for="harga" class="font-semibold text-xl mb-2">Harga</label>
+          <input
+            type="number"
+            name="harga"
+            id="harga"
+            readonly
+            value="150.000"
+            class="border p-2"
+          />
+        </div>
+
+        <div class="flex flex-col mb-4">
+          <label for="qty" class="font-semibold text-xl mb-2">Qty</label>
+          <input type="number" name="qty" id="qty" min="1" class="border p-2" />
+        </div>
+
+        <div class="flex flex-col mb-4">
+          <label for="total" class="font-semibold text-xl mb-2">Total</label>
+          <input
+            type="number"
+            name="total"
+            id="total"
+            readonly
+            class="border p-2"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="bg-blue-500 text-white font-semibold p-2 rounded-lg hover:bg-blue-600"
+          id="submit-btn"
+        >
+          Pesan Sekarang
+        </button>
+        <button
+          type="submit"
+          class="bg-red-500 text-white font-semibold p-2 rounded-lg hover:bg-red-600"
+          id="cancel-btn"
+        >
+          Batal
+        </button>
+      </form>
+      <script>
+        $("#kategori_jenis").change(function () {
+          let kategori_jenis = $("#kategori_jenis").val();
+          //alert("jenis tiket dipilih adalah " + kategori_jenis);
+          if (kategori_jenis == "domestik_dewasa") {
+            $("#harga").val("150,000");
+          } else if (kategori_jenis == "domestik_anak") {
+            $("#harga").val("100.000");
+          } else if (kategori_jenis == "mancanegara_dewasa") {
+            $("#harga").val("200.000");
+          } else if (kategori_jenis == "mancanegara_anak") {
+            $("#harga").val("150.000");
+          } else if (kategori_jenis == "paket_kelompok") {
+            $("#harga").val("300.000");
+          } else {
+            $("#harga").val("0");
+          }
+        });
+        $("#submit-btn").click(function () {
+          alert("The paragraph was clicked.");
+        });
+
+        $("#qty").keyup(function () {
+          let harga = $("#harga").val();
+          let qty = $("#qty").val();
+          let total = harga.replace('.','') * qty;
+          $("#total").val(total);
+        });
+      </script>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.hero-img{
+    border-radius: 300px;
+}
+.pantai{
+    margin-right: 10px;
+    border-radius: 14px;
+}
+.penida{
+    border-radius:20px;
+}
+
+.tiket, th, td{
+    border-collapse: collapse;
+    border: 1px solid #000
+
+}

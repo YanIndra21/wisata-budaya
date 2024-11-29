@@ -4,13 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gede Travel Assistance | Bali Travel Agency</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="/scripts/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
+    <!-- NAVBAR -->
    <header>
-    <nav>
-        
+    <nav class=" justify-between items-center mx-auto py-5 flex shadow-lg">
+        <div class="mx-auto flex w-[1080px] justify-between">
+            <div>
+                <img src="img/GTA-NO-BG.png" alt="Logo" width="55">
+            </div>
+            <ul class="flex space-x-5">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Destinations</a>
+                </li>
+                <li>
+                    <a href="#">News</a>
+                </li>
+                <li>
+                    <a href="#">Reviews</a>
+                </li>
+            </ul>
+        </div>
+       
     </nav>
    </header>
+<!-- MAIN MENU -->
+   <main class="mx-10">
+    <img src="img/pantai.jpg" class="pantai" alt="Pantai" width="400">
+    <img src="img/penida2.jpg" alt="penida" class="penida" width="400">
+    <h1>
+        Keunikan Pura Uluwatu
+    </h1>
+    <ol>
+        <li>
+            Lokasi yang mengagumkan
+        </li>
+        <li>
+            Pura yang berfungsi sebagai tempat pemujaan
+        </li>
+        <li>
+            keberadaan kera-kera yang ramah
+        </li>
+        <li>
+            Wukong pernah kesini
+        </li>
+        <a href="https://youtu.be/dQw4w9WgXcQ?si=XaQhNxq6mCCcRd26" target="_blank" class="text-blue-500 hover:text-blue-600">baca selengkapnya</a>
+    </ol>
+
+    <h1 style="margin-bottom: 40px;">
+        Harga Tiket Kunjungan
+    </h1>
+    <table class="tiket">
+        <thead >
+            <tr style="background-color: aquamarine">
+                <th style="width: 30px;">
+                    No
+                </th>
+                <th style="width: 150px;">
+                    kategori
+                </th>
+                <th style="width: 150px;">
+                    jenis
+                </th>
+                <th style="width: 100px;">
+                    harga
+                </th>
+                <th style="width: 100px;">
+                    aksi
+                </th>
+            </tr>
+        </thead >
+        <tbody>
+            <tr>
+                <td align="center">
+                    1
+                </td>
+                <td rowspan="2">
+                    Domestik
+                </td>
+                <td>
+                    Dewasa
+                </td>
+                <td align="right">
+                    Rp. 150.000
+                </td>
+                <td align="center"><a href="pesan.html" target="_blank">Pesan</a></td>
+            </tr>
+            <tr>
+                <td align="center">
+                    2
+                </td>
+                <td>
+                    Anak-anak
+                </td>
+                <td align="right">
+                    Rp. 100.000
+                </td>
+                <td align="center"><a href="pesan.html" target="_blank">Pesan</a></td>
+            </tr>
+            <tr>
+                <td align="center">
+                    3
+                </td>
+                <td rowspan="2">
+                    Mancanegara
+                </td>
+                <td>
+                    Dewasa
+                </td>
+                <td align="right">
+                    Rp. 200.000
+                </td>
+                <td align="center"><a href="pesan.html" target="_blank">Pesan</a></td>
+            </tr>
+            <tr>
+                <td align="center">
+                    4
+                </td>
+                <td>
+                    Anak-anak
+                </td>
+                <td align="right">
+                    Rp. 150.000
+                </td>
+                <td align="center"><a href="pesan.html" target="_blank">Pesan</a></td>
+            </tr>
+            <tr>
+                <td align="center">
+                    5
+                </td>
+                <td colspan="2" align="center">
+                   <strong>Paket Kelompok</strong> 
+                </td>
+                <td align="right">
+                    Rp. 300.000
+                </td>
+                <td align="center"><a href="pesan.html" target="_blank">Pesan</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+   </main>
 </body>
 </html>
