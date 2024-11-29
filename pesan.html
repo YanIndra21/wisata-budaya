@@ -19,9 +19,10 @@
     <main
       class="bg-white mx-auto max-w-3xl mt-8 flex flex-col p-10 rounded-lg shadow-lg"
     >
-      <h1 class="font-bold text-2xl text-center mb-6">Lengkapi Data</h1>
+      
 
-      <form oninput="calculateTotal()">
+      <form oninput="calculateTotal()" id="form">
+        <h1 class="font-bold text-2xl text-center mb-6" >Lengkapi Data</h1>
         <div class="flex flex-col justify-center mb-4">
           <label for="nama" class="font-semibold text-xl mb-2">Nama</label>
           <input
@@ -116,7 +117,7 @@
         <div class="flex flex-col mb-4">
           <label for="harga" class="font-semibold text-xl mb-2">Harga</label>
           <input
-            type="number"
+            type="text"
             name="harga"
             id="harga"
             readonly
@@ -133,7 +134,7 @@
         <div class="flex flex-col mb-4">
           <label for="total" class="font-semibold text-xl mb-2">Total</label>
           <input
-            type="number"
+            type="text"
             name="total"
             id="total"
             readonly
@@ -156,6 +157,7 @@
           Batal
         </button>
       </form>
+      <h1 class="font-bold text-2xl text-center mb-6 hidden" id="ucapan">Terimakasih <p id="nama_pesan"></p>🙏🙏🙏🙏</h1>
       <script>
         $("#kategori_jenis").change(function () {
           let kategori_jenis = $("#kategori_jenis").val();
@@ -175,14 +177,19 @@
           }
         });
         $("#submit-btn").click(function () {
-          alert("The paragraph was clicked.");
+          let nama = $('#nama').val();
+          //alert("Terimakasih " + nama + " sudah memesan tiket"  );
+          $("#form").fadeOut(500);
+          $("#ucapan").fadeIn(3000);
+          $("#nama_pesan").text(nama);
         });
 
         $("#qty").keyup(function () {
           let harga = $("#harga").val();
           let qty = $("#qty").val();
           let total = harga.replace('.','') * qty;
-          $("#total").val(total);
+          let total_format = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
+          $("#total").val(total_format);
         });
       </script>
     </main>
